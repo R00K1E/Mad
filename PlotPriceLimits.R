@@ -1,9 +1,6 @@
 rm(list=ls())
 library(quantmod)
 
-data <- getSymbols("^FTSE",auto.assign=F)
-data <- data[,4]
-names(data) <- "Close"
 
 
 MovingFun <- function(x, func, k){
@@ -32,4 +29,10 @@ PlotPriceLimits <- function(prices, k=30, f=1/10, sd=3){
 }
 
 
+data <- getSymbols("^GDAXI",auto.assign=F)
+data <- data[,4]
+names(data) <- "Close"
+
 PlotPriceLimits(data, 30, 1/10, 3)
+
+
